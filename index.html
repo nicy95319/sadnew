@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TripShare ✈ 旅遊行程分享交流平台</title>
+<title>TripShare 🌿 旅遊行程分享交流平台</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   /* ===== CSS 變數 ===== */
   :root {
-    --coral: #FF6B47;
-    --coral-dark: #e85530;
-    --coral-light: #fff0ec;
-    --ocean: #1A9CC6;
-    --ocean-light: #e3f6fd;
-    --sand: #FDF6EC;
-    --sand-dark: #f5e9d3;
-    --dark: #2C2C2A;
-    --gray: #6b6b69;
-    --gray-light: #f0ede8;
+    --coral: #798A70;
+    --coral-dark: #5D6D56;
+    --coral-light: #F1F4EE;
+    --ocean: #C9A66B;
+    --ocean-light: #F8F4EC;
+    --sand: #FAF8F5;
+    --sand-dark: #EAE4D9;
+    --dark: #3E3E3C;
+    --gray: #8B8A85;
+    --gray-light: #F0EDE6;
     --white: #ffffff;
     --shadow-sm: 0 2px 8px rgba(44,44,42,0.08);
     --shadow-md: 0 4px 20px rgba(44,44,42,0.13);
@@ -37,27 +37,35 @@
     overflow-x: hidden;
   }
 
-  /* ===== 背景裝飾波浪 ===== */
+  /* ===== 背景裝飾波浪（文青有機形狀） ===== */
   body::before {
     content: '';
     position: fixed;
-    top: -120px; right: -80px;
-    width: 420px; height: 420px;
-    background: radial-gradient(circle, rgba(255,107,71,0.13) 0%, transparent 70%);
-    border-radius: 50%;
+    top: -150px; right: -100px;
+    width: 500px; height: 500px;
+    background: rgba(121,138,112,0.08);
+    border-radius: 43% 57% 70% 30% / 30% 45% 55% 70%;
     pointer-events: none;
     z-index: 0;
+    animation: blob-float 15s ease-in-out infinite alternate;
   }
   body::after {
     content: '';
     position: fixed;
-    bottom: -100px; left: -60px;
-    width: 340px; height: 340px;
-    background: radial-gradient(circle, rgba(26,156,198,0.12) 0%, transparent 70%);
-    border-radius: 50%;
+    bottom: -150px; left: -100px;
+    width: 400px; height: 400px;
+    background: rgba(201,166,107,0.08);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     pointer-events: none;
     z-index: 0;
+    animation: blob-float 18s ease-in-out infinite alternate-reverse;
   }
+  @keyframes blob-float {
+    0% { transform: translateY(0) scale(1) rotate(0deg); }
+    100% { transform: translateY(-30px) scale(1.05) rotate(15deg); }
+  }
+
+
 
   /* ===== 頁面切換動畫 ===== */
   .page { display: none; position: relative; z-index: 1; animation: fadeIn 0.35s ease; }
@@ -84,7 +92,7 @@
     cursor: pointer;
     letter-spacing: 1px;
   }
-  .navbar-logo span { color: var(--ocean); }
+  .navbar-logo span { color: inherit; }
   .navbar-right { display: flex; align-items: center; gap: 0.5rem; }
   .nav-btn {
     background: transparent;
@@ -118,11 +126,11 @@
   }
   .btn:active { transform: scale(0.96); }
   .btn-primary { background: var(--coral); color: var(--white); }
-  .btn-primary:hover { background: var(--coral-dark); box-shadow: 0 4px 16px rgba(255,107,71,0.35); }
+  .btn-primary:hover { background: var(--coral-dark); box-shadow: 0 4px 16px rgba(121,138,112,0.35); }
   .btn-outline { background: transparent; color: var(--coral); border-color: var(--coral); }
   .btn-outline:hover { background: var(--coral-light); }
   .btn-ocean { background: var(--ocean); color: var(--white); }
-  .btn-ocean:hover { background: #157fab; box-shadow: 0 4px 16px rgba(26,156,198,0.35); }
+  .btn-ocean:hover { background: #A88754; box-shadow: 0 4px 16px rgba(201,166,107,0.35); }
   .btn-ghost { background: var(--gray-light); color: var(--gray); border-color: transparent; }
   .btn-ghost:hover { background: var(--sand-dark); color: var(--dark); }
   .btn-lg { padding: 0.8rem 2rem; font-size: 1.05rem; }
@@ -143,7 +151,7 @@
   }
   .form-input:focus, .form-textarea:focus {
     border-color: var(--coral);
-    box-shadow: 0 0 0 3px rgba(255,107,71,0.15);
+    box-shadow: 0 0 0 3px rgba(121,138,112,0.15);
   }
   .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
   .form-error { color: #e02020; font-size: 0.82rem; margin-top: 0.35rem; font-weight: 600; display: none; }
@@ -193,16 +201,16 @@
     overflow: hidden;
   }
   .auth-hero {
-    background: linear-gradient(135deg, var(--coral) 0%, #ff9a6c 100%);
+    background: linear-gradient(135deg, var(--coral) 0%, #9CB092 100%);
     padding: 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
   .auth-hero::before {
-    content: '✈';
+    content: '🌿';
     position: absolute; top: -20px; right: -10px;
-    font-size: 6rem; opacity: 0.12; transform: rotate(25deg);
+    font-size: 6rem; opacity: 0.15; transform: rotate(25deg);
   }
   .auth-hero-logo {
     font-family: 'Pacifico', cursive;
@@ -233,10 +241,10 @@
   }
   .avatar-upload-zone::before {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(255,107,71,0.06) 0%, rgba(26,156,198,0.06) 100%);
+    background: linear-gradient(135deg, rgba(121,138,112,0.06) 0%, rgba(201,166,107,0.06) 100%);
     opacity: 0; transition: opacity 0.25s;
   }
-  .avatar-upload-zone:hover { border-color: var(--coral); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(255,107,71,0.13); }
+  .avatar-upload-zone:hover { border-color: var(--coral); transform: translateY(-1px); box-shadow: 0 4px 18px rgba(121,138,112,0.13); }
   .avatar-upload-zone:hover::before { opacity: 1; }
   .avatar-upload-zone.has-image { border-style: solid; border-color: var(--coral); background: var(--coral-light); }
 
@@ -253,18 +261,18 @@
     box-shadow: 0 2px 12px rgba(44,44,42,0.10);
   }
   .avatar-upload-zone:hover .avatar-ring,
-  .avatar-upload-zone.has-image .avatar-ring { border-color: var(--coral); box-shadow: 0 0 0 4px rgba(255,107,71,0.15); }
+  .avatar-upload-zone.has-image .avatar-ring { border-color: var(--coral); box-shadow: 0 0 0 4px rgba(121,138,112,0.15); }
 
   .avatar-ring-placeholder {
     width: 100%; height: 100%; border-radius: 50%;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, #ffe8e0 0%, #ffd4c8 100%);
+    background: linear-gradient(135deg, #E8EBE5 0%, #DCE2D6 100%);
     color: var(--coral); transition: all 0.25s; gap: 2px;
   }
   .avatar-ring-placeholder .ph-letter {
     font-size: 2rem; font-weight: 800; line-height: 1; color: var(--coral);
   }
-  .avatar-ring-placeholder .ph-icon { font-size: 0.7rem; color: rgba(255,107,71,0.6); font-weight: 700; }
+  .avatar-ring-placeholder .ph-icon { font-size: 0.7rem; color: rgba(121,138,112,0.6); font-weight: 700; }
 
   .avatar-preview-img {
     width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
@@ -360,8 +368,8 @@
     transition: all 0.18s;
   }
   .action-btn:hover { background: var(--gray-light); color: var(--dark); }
-  .action-btn.liked { color: #e53030; }
-  .action-btn.liked:hover { background: #fff0f0; }
+  .action-btn.liked { color: #A35C5C; }
+  .action-btn.liked:hover { background: #F5EBEB; }
   .action-btn .icon { font-size: 1.1rem; }
 
   /* ===== 留言區 ===== */
@@ -379,7 +387,7 @@
     outline: none; transition: border-color 0.2s, box-shadow 0.2s;
     resize: none; line-height: 1.5;
   }
-  .comment-input:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(255,107,71,0.12); }
+  .comment-input:focus { border-color: var(--coral); box-shadow: 0 0 0 3px rgba(121,138,112,0.12); }
   .comment-login-hint {
     background: var(--sand); border-radius: var(--radius-sm);
     padding: 0.8rem 1rem; text-align: center;
@@ -425,16 +433,16 @@
   /* ===== 分享區 ===== */
   #page-share { padding: 0; }
   .share-hero {
-    background: linear-gradient(135deg, var(--ocean) 0%, #2bb8e8 100%);
+    background: linear-gradient(135deg, var(--ocean) 0%, #DEBE87 100%);
     padding: 2.5rem 1.5rem; text-align: center; position: relative; overflow: hidden;
   }
   .share-hero::before {
-    content: '🌍'; position: absolute; left: -20px; bottom: -20px;
-    font-size: 8rem; opacity: 0.1;
+    content: '⛰️'; position: absolute; left: -20px; bottom: -20px;
+    font-size: 8rem; opacity: 0.08;
   }
   .share-hero::after {
-    content: '✈'; position: absolute; right: 10px; top: 10px;
-    font-size: 5rem; opacity: 0.12; transform: rotate(25deg);
+    content: '☁️'; position: absolute; right: 20px; top: 20px;
+    font-size: 5rem; opacity: 0.15; transform: rotate(10deg);
   }
   .share-hero-title { font-family: 'Pacifico', cursive; font-size: 2rem; color: var(--white); margin-bottom: 0.3rem; }
   .share-hero-sub { color: rgba(255,255,255,0.88); font-size: 0.95rem; font-weight: 600; }
@@ -522,11 +530,13 @@
 </head>
 <body>
 
+
+
 <!-- ===== Modal: 未登入提示 ===== -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-icon">✈️</div>
+    <div class="modal-icon">🪴</div>
     <div class="modal-title">嗨！你有 TripShare 的帳號嗎？</div>
     <div class="modal-desc">登入後就可以按讚、留言，和大家分享你的旅遊故事！</div>
     <div class="modal-actions">
@@ -543,8 +553,8 @@
 <div class="page" id="page-auth">
   <div class="auth-container">
     <div class="auth-hero">
-      <div class="auth-hero-logo">Trip<span style="color:#ffe4d4">Share</span></div>
-      <div class="auth-hero-sub">🌏 記錄你的旅途，分享你的故事</div>
+      <div class="auth-hero-logo">Trip<span>Share</span></div>
+      <div class="auth-hero-sub">📖 記錄你的旅途，分享你的故事</div>
     </div>
     <div class="auth-tabs">
       <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">登入</button>
@@ -561,7 +571,7 @@
         <input class="form-input" id="login-pw" type="password" placeholder="輸入密碼">
       </div>
       <div class="form-error" id="login-err">帳號或密碼錯誤，請再試一次</div>
-      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" onclick="doLogin()">登入 ✈</button>
+      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" onclick="doLogin()">登入 ☕</button>
       <p style="text-align:center;margin-top:1rem;font-size:0.85rem;color:var(--gray);">
         還沒有帳號？<a href="#" style="color:var(--coral);font-weight:700;" onclick="switchAuthTab('register');return false;">立刻註冊</a>
       </p>
@@ -624,7 +634,7 @@
 
       <div class="form-error" id="reg-general-err">請填寫所有必填欄位</div>
       <div class="form-success" id="reg-success">🎉 註冊成功！請登入你的帳號</div>
-      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" onclick="doRegister()">完成註冊 🎒</button>
+      <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" onclick="doRegister()">完成註冊 📖</button>
     </div>
   </div>
 </div>
@@ -633,7 +643,7 @@
 <div class="page" id="page-home">
   <!-- Navbar -->
   <nav class="navbar">
-    <span class="navbar-logo" onclick="showPage('home')">Trip<span>Share</span> ✈</span>
+    <span class="navbar-logo" onclick="showPage('home')">Trip<span>Share</span> 🌿</span>
     <div class="navbar-right">
       <button class="nav-btn active" onclick="showPage('home')">我的主頁</button>
       <button class="nav-btn" onclick="showPage('share')">分享區</button>
@@ -677,7 +687,7 @@
 <!-- ===== 頁面三：發文頁 ===== -->
 <div class="page" id="page-post">
   <nav class="navbar">
-    <span class="navbar-logo" onclick="showPage('home')">Trip<span>Share</span> ✈</span>
+    <span class="navbar-logo" onclick="showPage('home')">Trip<span>Share</span> 🌿</span>
     <div class="navbar-right">
       <button class="nav-btn" onclick="showPage('home')">我的主頁</button>
       <button class="nav-btn" onclick="showPage('share')">分享區</button>
@@ -730,7 +740,7 @@
 <!-- ===== 頁面四：分享區 ===== -->
 <div class="page" id="page-share">
   <nav class="navbar" id="share-navbar">
-    <span class="navbar-logo" onclick="showPage(getCurrentUser() ? 'home' : 'share')">Trip<span>Share</span> ✈</span>
+    <span class="navbar-logo" onclick="showPage(getCurrentUser() ? 'home' : 'share')">Trip<span>Share</span> 🌿</span>
     <div class="navbar-right" id="share-navbar-right"></div>
   </nav>
   <div class="share-hero">
@@ -786,8 +796,8 @@ function avatarHtml(user, size = 40) {
     return `<img class="avatar" src="${user.avatarBase64}" alt="頭貼" style="width:${size}px;height:${size}px;">`;
   }
   const letter = (user.username || user.id || '?')[0].toUpperCase();
-  const colors = ['#FF6B47','#1A9CC6','#2dbe78','#e85dc0','#7c5cfc'];
-  const color = colors[(user.id || '').charCodeAt(0) % colors.length] || '#FF6B47';
+  const colors = ['#798A70','#C9A66B','#8E7A70','#8F9EA3','#AF8E7A'];
+  const color = colors[(user.id || '').charCodeAt(0) % colors.length] || '#798A70';
   return `<div class="avatar-placeholder" style="width:${size}px;height:${size}px;background:${color};font-size:${size*0.42}px;">${letter}</div>`;
 }
 
@@ -858,33 +868,42 @@ function updateRegPlaceholder() {
 }
 
 let pendingCaptchaUser = null;
-const captchaIcons = [
-  { icon: '✈️', name: '飛機' },
-  { icon: '🚗', name: '汽車' },
-  { icon: '🚲', name: '腳踏車' },
-  { icon: '⛵', name: '帆船' },
-  { icon: '🚌', name: '公車' },
-  { icon: '🛵', name: '機車' },
-  { icon: '🚆', name: '火車' },
-  { icon: '🚁', name: '直升機' }
+const captchaCategories = [
+  { name: '飛機', icons: ['✈️', '🛩️', '🛫', '🛬'] },
+  { name: '汽車', icons: ['🚗', '🚕', '🚙', '🏎️'] },
+  { name: '船隻', icons: ['⛵', '🚤', '🛳️', '⛴️'] },
+  { name: '火車', icons: ['🚆', '🚄', '🚅', '🚂'] },
+  { name: '兩輪車', icons: ['🚲', '🛵', '🏍️', '🛴'] },
+  { name: '大型車', icons: ['🚌', '🚐', '🚎', '🚒'] }
 ];
 let captchaTarget = null;
 let captchaGridState = [];
 
 function generateCaptcha() {
-  captchaTarget = captchaIcons[Math.floor(Math.random() * captchaIcons.length)];
+  captchaTarget = captchaCategories[Math.floor(Math.random() * captchaCategories.length)];
   document.getElementById('captcha-target-icon').textContent = `「${captchaTarget.name}」`;
   document.getElementById('captcha-err').classList.remove('show');
   captchaGridState = [false, false, false, false, false, false, false, false, false];
   
   const targetCount = 3 + Math.floor(Math.random() * 2);
   let gridIcons = [];
-  for (let i = 0; i < targetCount; i++) gridIcons.push({ icon: captchaTarget.icon, isTarget: true });
-  for (let i = targetCount; i < 9; i++) {
-    let randomIcon;
-    do { randomIcon = captchaIcons[Math.floor(Math.random() * captchaIcons.length)]; } while (randomIcon.icon === captchaTarget.icon);
-    gridIcons.push({ icon: randomIcon.icon, isTarget: false });
+  
+  let targetIconsPool = [...captchaTarget.icons].sort(() => Math.random() - 0.5);
+  for (let i = 0; i < targetCount; i++) {
+    gridIcons.push({ icon: targetIconsPool[i % targetIconsPool.length], isTarget: true });
   }
+  
+  let noiseIconsPool = [];
+  captchaCategories.forEach(cat => {
+    if (cat.name !== captchaTarget.name) {
+      noiseIconsPool.push(...cat.icons);
+    }
+  });
+  noiseIconsPool.sort(() => Math.random() - 0.5);
+  for (let i = targetCount; i < 9; i++) {
+    gridIcons.push({ icon: noiseIconsPool[i - targetCount], isTarget: false });
+  }
+  
   gridIcons.sort(() => Math.random() - 0.5);
 
   const gridEl = document.getElementById('captcha-grid');
